@@ -1,0 +1,34 @@
+﻿
+@model MeyawoPortfolios.Models.TblProject
+
+@{
+    ViewBag.Title = "CreateProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Proje Güncelleme Sayfası</h2>
+<hr />
+<form method="post" action="/AdminProject/UpdateProject/">
+    <input type="hidden" name="ProjectID" value="@Model.ProjectID" />
+    <div class="form-group mb-3">
+        <label class="form-label">Proje Başlığı</label>
+        <input class="form-control" value="@Model.Title" name="Title" />
+    </div>
+    <div class="form-group mb-3">
+        <label class="form-label">Proje Açıklaması</label>
+        <textarea class="form-control" cols="10" rows="7" name="Description">@Model.Description</textarea>
+    </div>
+    <div class="form-group mb-3">
+        <label class="form-label">Proje Kategorisi</label>
+        @Html.DropDownListFor(x => x.Category, (SelectList)ViewBag.categoryList, "Kategori Seçiniz", new { @class = "form-control" })
+    </div>
+    <div class="form-group mb-3">
+        <label class="form-label">Görsel</label>
+        <input class="form-control" value="@Model.ImageUrl" name="ImageUrl" />
+    </div>
+    <div class="form-group mb-3">
+        <label class="form-label">Proje Görseli</label>
+        <input class="form-control" name="ProjectUrl" value="@Model.ProjectUrl" />
+    </div>
+    <button type="submit" class="btn btn-primary">Proje Güncelle</button>
+</form>

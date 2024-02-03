@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>İstatistik Sayfası</h2>
+<hr />
+<div class="alert alert-primary" role="alert">
+    Toplam Kategori Sayısı : @ViewBag.totalCategory
+</div>
+
+
+<div class="alert alert-warning" role="alert">
+    Toplam Proje Sayısı : @ViewBag.totalProject
+</div>
+
+<div class="alert alert-info" role="alert">
+    Toplam Mesaj Sayısı :@ViewBag.totalContact
+
+</div><div class="alert alert-primary" role="alert">
+    Toplam Hizmet Sayısı :@ViewBag.totalService
+
+</div>
+<div class="alert alert-dark" role="alert">
+    Toplam Hizmet Sayısı :@ViewBag.totalTestimonial
+
+</div>
+<div class="alert alert-success" role="alert">
+    Toplam Flutter Kategori Sayısı :@ViewBag.totalFlutter
+
+</div>
+<div class="alert alert-success" role="alert">
+  
+        <p>En Çok Kullanılan Kategori : @ViewBag.val</p>
+    
+
+</div>

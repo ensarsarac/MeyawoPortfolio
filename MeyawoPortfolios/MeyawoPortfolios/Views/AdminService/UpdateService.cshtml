@@ -1,0 +1,26 @@
+﻿
+@model MeyawoPortfolios.Models.TblService
+
+@{
+    ViewBag.Title = "CreateProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hizmet Güncelleme Sayfası</h2>
+<hr />
+<form method="post" action="/AdminService/UpdateService/">
+    <input type="hidden" name="ServiceID" value="@Model.ServiceID" />
+    <div class="form-group mb-3">
+        <label class="form-label">Hizmet Adı</label>
+        <input class="form-control" name="Title" value="@Model.Title"/>
+    </div>
+    <div class="form-group mb-3">
+        <label class="form-label">Hizmet Açıklaması</label>
+        <textarea class="form-control" cols="10" rows="7" name="Description">@Model.Description</textarea>
+    </div>
+    <div class="form-group mb-3">
+        <label class="form-label">Hizmet Görsel</label>
+        <input class="form-control" name="ImageUrl" value="@Model.ImageUrl" />
+    </div>
+    <button type="submit" class="btn btn-primary">Hizmeti Güncelle</button>
+</form>

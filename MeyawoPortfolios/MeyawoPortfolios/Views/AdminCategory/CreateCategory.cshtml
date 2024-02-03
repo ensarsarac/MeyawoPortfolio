@@ -1,0 +1,17 @@
+﻿
+@model MeyawoPortfolios.Models.TblCategory
+
+@{
+    ViewBag.Title = "CreateProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Kategori Oluştur</h2>
+<hr />
+<form method="post" action="/AdminCategory/CreateCategory/">
+    <div class="form-group mb-3">
+        <label class="form-label">Kategori Adı</label>
+        <input class="form-control" name="CategoryName" />
+    </div>
+    <button type="submit" class="btn btn-primary">Kategori Kaydet</button>
+</form>

@@ -1,0 +1,20 @@
+﻿
+@model List<MeyawoPortfolios.Models.TblSocialMedia>  
+
+  <!-- footer -->
+<div class="container">
+    <footer class="footer">
+        <p class="mb-0">
+            Copyright
+            <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com">Ensar SARAÇ</a> CV <a href="https://themewagon.com">ThemeWagon</a>
+        </p>
+        <div class="social-links text-right m-auto ml-sm-auto">
+            @foreach (var item in Model)
+            {
+                <a href="" class="link"><i class="@item.Icon"></i></a>
+            }
+
+
+        </div>
+    </footer>
+</div> <!-- end of page footer -->

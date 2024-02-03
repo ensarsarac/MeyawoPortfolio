@@ -1,0 +1,68 @@
+﻿
+@model MeyawoPortfolios.Models.TblAbout
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Hakkımda Alan İşlemleri</h2>
+<hr />
+@if (Model != null)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>Ünvan</th>
+            <th>Başlık</th>
+            <th>Açıklama</th>
+            <th>Resim</th>
+            <th>Güncelle</th>
+        </tr>
+        <tr>
+            <td>@Model.Title</td>
+            <td>@Model.Header</td>
+            <td>@Model.Description</td>
+            <td>@Model.ImageUrl</td>
+            <td><button type="button" data-target="#Modal1" data-toggle="modal" class="btn btn-warning">Güncelle</button></td>
+        </tr>
+
+    </table>
+    <div class="modal" id="Modal1" tabindex="-1">
+        <div class="modal-dialog">
+            <form method="post" action="/AdminAbout/UpdateAbout/">
+                <input type="hidden" name="AboutID" value="@Model.AboutID"/>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hakkımda Bilgileri</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label class="form-label">Ünvan</label>
+                            <input type="text" class="form-control" name="Title" value="@Model.Title" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Başlık</label>
+                            <input type="text" class="form-control" name="Header" value="@Model.Header" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Açıklama</label>
+                            <textarea class="form-control" name="Description">@Model.Description </textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Resim</label>
+                            <input type="text" class="form-control" name="ImageUrl" value="@Model.ImageUrl" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                        <button type="submit" class="btn btn-primary">Güncelle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+}
+else
+{
+    <h5>Hakkımda tablosunda şuan veri yok.</h5>
+}

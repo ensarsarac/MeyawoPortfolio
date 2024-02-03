@@ -1,0 +1,57 @@
+﻿
+@model List<MeyawoPortfolios.Models.TblContact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Mesaj Listesi</h2>
+<hr />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Ad Soyad</th>
+        <th>Email</th>
+        <th>Mesaj</th>
+        <th>Tarih</th>
+        <th>Sil</th>
+        <th>Mesaj Detay</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ContactID</td>
+            <td>@item.NameSurname</td>
+            <td>@item.Email</td>
+            @if (item.Message.Length < 50)
+            {
+                <td>@item.Message</td>
+            }
+            else
+            {
+                <td>@item.Message.Substring(0, 50) ...</td>
+            }
+            <td>@item.SendDate</td>
+            <td><a href="/AdminContact/DeleteMessage/@item.ContactID/" class="btn btn-danger">Sil</a></td>
+            <td><button type="button" data-toggle="modal" data-target="#Modal1-@item.ContactID" class="btn btn-dark">Mesaj Detay</button></td>
+        </tr>
+        <div class="modal" id="Modal1-@item.ContactID" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Mesaj Detayları</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Gönderen: </strong>@item.NameSurname</p>
+                        <p><strong>Mail: </strong>@item.Email</p>
+                        <p><strong>Mesaj:<br /> </strong>@item.Message</p>
+                        <p><strong>Tarih:<br /> </strong>@item.SendDate</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</table>

@@ -1,0 +1,25 @@
+﻿
+@model MeyawoPortfolios.Models.TblSocialMedia
+
+@{
+    ViewBag.Title = "CreateProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Yeni Sosyal Medya Hesabı Oluştur</h2>
+<hr />
+<form method="post" action="/AdminSocialMedia/CreateSocialMedia/">
+    <div class="form-group mb-3">
+        <label class="form-label">Platform Adı</label>
+        <input class="form-control" name="Title" />
+    </div>
+    <div class="form-group mb-3">
+        <label class="form-label">Url</label>
+        <input class="form-control" name="Url" />
+    </div>
+    <div class="form-group mb-3">
+        <label class="form-label">İkon</label>
+        <input class="form-control" name="Icon" />
+    </div>
+    <button type="submit" class="btn btn-primary">Sosyal Medya Hesabını Kaydet</button>
+</form>

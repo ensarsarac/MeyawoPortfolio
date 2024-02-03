@@ -1,0 +1,55 @@
+﻿
+@model MeyawoPortfolios.Models.TblFeature
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Öne Çıkan Alan İşlemleri</h2>
+<hr />
+<table class="table table-bordered">
+    <tr>
+        <th>Başlık</th>
+        <th>Ad Soyad</th>
+        <th>Ünvan</th>
+        <th>Güncelle</th>
+    </tr>
+    <tr>
+        <td>@Model.Header</td>
+        <td>@Model.NameSurname</td>
+        <td>@Model.Title</td>
+        <td><button type="button" data-target="#Modal1" data-toggle="modal" class="btn btn-warning">Güncelle</button></td>
+    </tr>
+
+</table>
+<div class="modal" id="Modal1" tabindex="-1">
+    <div class="modal-dialog">
+        <form method="post" action="/AdminFeature/UpdateFeature/">
+            <input type="hidden" name="FeatureID" value="@Model.FeatureID" />
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Öne Çıkan Bilgileri</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-label">Başlık</label>
+                        <input type="text" class="form-control" name="Header" value="@Model.Header" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ad Soyad</label>
+                        <input type="text" class="form-control" name="NameSurname" value="@Model.NameSurname"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ünvan</label>
+                        <input type="text" class="form-control" name="Title" value="@Model.Title"/>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Kapat</button>
+                    <button type="submit" class="btn btn-primary">Güncelle</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
